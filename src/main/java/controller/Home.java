@@ -10,12 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/home")
+@WebServlet("/")
 public class Home extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+
         DaoTourPackages daoTourPackages = new DaoTourPackages();
 
         // Lấy danh sách tour và ảnh
@@ -27,5 +30,4 @@ public class Home extends HttpServlet {
         // Chuyển hướng tới trang Home.jsp
         request.getRequestDispatcher("/WEB-INF/client/home/Home.jsp").forward(request, response);
     }
-
 }

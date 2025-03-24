@@ -3,19 +3,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-      <!-- Mapping Servlet -->
-    <servlet>
-        <servlet-name>homeServlet</servlet-name>
-        <servlet-class>com.ivivu.servlet.HomeServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>homeServlet</servlet-name>
-        <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-
+ 
     <!-- Trang mặc định -->
     <welcome-file-list>
-        <welcome-file>WEB-INF/admin/locations/Home.jsp</welcome-file>
+        <welcome-file>WEB-INF/client/home/Paypal.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
