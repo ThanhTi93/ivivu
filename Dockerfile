@@ -1,18 +1,16 @@
-# Sử dụng image Java chính thức
-FROM openjdk:21-jdk-slim
+FROM maven:3.8.8-eclipse-temurin-17 AS build
 
-# Đặt thư mục làm việc
+# Copy source code vào container
+COPY . /app
 WORKDIR /app
 
-# Copy toàn bộ project vào Docker image
-COPY . .
+# Dùng Maven build project
+RUN mvn clean package
 
-# Build project với Maven
-RUN ./mvnw clean package
-
-# Mở cổng 8080 để ứng dụng chạy
+# Dùng image Java để chạy app
+FROM eclipse-temurin:17-jre
+COPY --from=build /app/target/ivivu-0.0.1-SNAPSHOT.war /app.war
 EXPOSE 8080
+CMD ["java", "-jar", "/app.war"]
 
-# Lệnh khởi chạy ứng dụng
-CMD ["java", "-jar", "target/ivivu-0.0.1-SNAPSHOT.war"]
 
