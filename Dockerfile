@@ -14,4 +14,5 @@ RUN ./mvnw clean package
 EXPOSE 8080
 
 # Lệnh khởi chạy ứng dụng
-CMD ["java", "-jar", "target/ivivu.war"]
+CMD ["java", "-jar", "target/ivivu-0.0.1-SNAPSHOT.war"]
+
