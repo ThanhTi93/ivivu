@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+a {
+    text-decoration: none;
+}
+
+p,
+h1,h2,h3 {
+    margin: 0;
+}
+.hidden {
+    display: none;
+}
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+th {
+  text-align: center !important; /* Căn giữa ngang */
+  vertical-align: middle; /* Căn giữa dọc */
+}
+  .product-img {
+  img {
+    width: 100%;
+   max-width: 300px;
+  height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+ }
+.admin {
+    --bs-gutter-x: 0rem;
+
+    .left {
+        background-color: #272c32;
+        color: #fff;
+        padding: 0 20px;
+
+            .header {
+                position: relative;
+                height: 70px;
+                border-bottom: 1px solid #4e4e52;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                h1 {
+                    font-size: 20px;
+                    white-space: nowrap;
+                }
+
+                .icon {
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    background-color: red;
+                    position: absolute;
+                    transform: translateY(0%);
+                    right: 0px;
+                    transform: translateX(100%);
+                }
+            }
+
+            h2 {
+                font-size: 0.8rem;
+                border-bottom: 1px solid #4e4e52;
+                padding-bottom: 10px;
+            }
+
+            .content {
+                display: flex;
+                padding: 10px;
+                align-items: center;
+                &:hover {
+                    background-color:yellowgreen;
+                }
+                p {
+                    margin-left: 20px;
+                }
+            }
+    }
+
+    .right {
+        width: 100%;
+
+        .right-header {
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:0 20px;
+            .header-left {
+                display: flex;
+                align-items: center;
+                i {
+                    margin-left: 30px;
+                }
+                .icon-bell {
+                    position: relative;
+                    span {
+                        position: absolute;
+                        top:-5px;
+                        padding: 2px 5px;
+                        background-color: red;
+                        border-radius: 50%;
+                        color: white;
+                        font-size: 0.5rem;
+                    }
+                }
+                .icon-message {
+                    position: relative;
+                    span {
+                        position: absolute;
+                        top:-5px;
+                        padding: 2px 5px;
+                        background-color: blue;
+                        border-radius: 50%;
+                        color: white;
+                        font-size: 0.5rem;
+                    }
+                }
+            }
+
+            .header-right {
+                display: flex;
+                align-items: center;
+                .img-avatar {
+                    height: 40px;
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                .img-nation {
+                    height: 25px;
+                    margin-left: 10px;
+                    margin-right: 20px;
+                }
+            }
+        }
+        .right-main {
+            background-color: #f1f2f7;
+        }
+    }
+}
+
+/* mobile */
+@media screen and (max-width: 768px) {
+    .left {
+         .left-main {
+            display: none;
+        }
+        .header {
+            .icon {
+                transform: translateX(0%) !important;
+            }
+        }
+      }
+
+
+}
+ /* laptop */
+@media screen and (min-width: 769px) {
+     .admin {
+        display: flex;
+        .left {
+           height: 100vh;
+          }
+     .right {
+         .right-main {
+
+                    height: calc(100vh - 70px);
+                    overflow-y: auto;
+
+                 }
+    }
+     }
+
+}
+.image-box {
+    position: relative;
+}
+
+.image-box::before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 50px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 80%);
+    border-radius: 30%;
+    z-index: 1;
+}
+
+.paid {
+    color: green !important;
+}
+
+.unpaid {
+    color: red !important;
+}
