@@ -1,16 +1,15 @@
+# Bước 1: Build dự án bằng Maven
 FROM maven:3.8.8-eclipse-temurin-17 AS build
-
-# Copy source code vào container
 COPY . /app
 WORKDIR /app
+RUN mvn clean package -DskipTests
 
-# Dùng Maven build project
-RUN mvn clean package
+# Bước 2: Chạy với Tomcat (vì Servlet cần container)
+FROM tomcat:9-jre17
+COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
-# Dùng image Java để chạy app
-FROM eclipse-temurin:17-jre
-COPY --from=build /app/target/ivivu-0.0.1-SNAPSHOT.war /app.war
 EXPOSE 8080
-CMD ["java", "-jar", "/app.war"]
+CMD ["catalina.sh", "run"]
+
 
 
