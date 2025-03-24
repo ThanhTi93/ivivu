@@ -7,9 +7,9 @@ import java.sql.Statement;
 import java.util.Objects;
 
 public class BDworkben {
-	private static String DB_URL = "jdbc:mysql://localhost:3306/ivivu";
-	private static String USER_NAME = "root";
-	private static String PASSWORD = "149162536";
+	private static String DB_URL = System.getenv("DATABASE_URL");
+    private static String USER_NAME = System.getenv("DATABASE_USER");
+    private static String PASSWORD = System.getenv("DATABASE_PASSWORD");
 	private static Connection conn = null;
 
 	public static void main(String[] args) {
